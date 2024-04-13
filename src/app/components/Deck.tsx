@@ -1,7 +1,8 @@
 import { useEffect, useState } from "react"
 import { Card } from "../utils/Types";
+import { SingleCard } from "./SingleCard";
 
-export const Deck:React.FC = ()=>{
+export const Deck = ()=>{
     const [cards, setCards] = useState<Card[]>([])
     
     useEffect(()=>{
@@ -39,6 +40,11 @@ export const Deck:React.FC = ()=>{
     console.log(cards)
 
     return (
-        <></>
+        cards.map(card=>(
+            <SingleCard
+                card={card}
+                key={card.id}
+            />
+        ))
     )
 }
