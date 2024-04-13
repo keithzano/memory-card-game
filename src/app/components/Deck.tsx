@@ -45,8 +45,24 @@ export const Deck = ()=>{
         choiceOne ? setChoiceTwo(card) : setChoiceOne(card);
     }
 
-    console.log(choiceOne, choiceTwo)
+    useEffect(()=>{
+        if (choiceOne && choiceTwo){
+            if(choiceOne.color === choiceTwo.color && choiceOne.rank === choiceTwo.rank){
+                const updatedCards = cards.map(card=>(
+                    card.id === choiceOne.id || card.id === choiceTwo.id? {...card, matched:true}:card
+                ));
+                console.log("There was a matchh")
+                setCards(updatedCards)
+            }else console.log("No match")
+            resetTurn();
+        }
+    },[choiceOne,choiceTwo])
+console.log(choiceOne, choiceTwo)
 
+    const resetTurn = () => {
+        setChoiceOne(undefined)
+        setChoiceTwo(undefined)
+    }
     return (
        <section>
         <div className="grid grid-cols-9 gap-6">
