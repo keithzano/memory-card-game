@@ -45,6 +45,12 @@ export const Deck = ({currentPlayer, switchPlayer}:{currentPlayer:Player; switch
     const handleChoice =(card:Card) =>{
         choiceOne ? setChoiceTwo(card) : setChoiceOne(card);
     }
+    const resetTurn = () => {
+        setChoiceOne(undefined);
+        setChoiceTwo(undefined);
+        setDisabled(false);
+        switchPlayer();
+    }
 
     useEffect(()=>{
         if (choiceOne && choiceTwo){
@@ -61,15 +67,9 @@ export const Deck = ({currentPlayer, switchPlayer}:{currentPlayer:Player; switch
             setTimeout(()=>{resetTurn()},1000)
             
         }
-    },[choiceOne,choiceTwo])
-console.log(choiceOne, choiceTwo)
+    },[choiceOne,choiceTwo, cards, currentPlayer.score, resetTurn])
 
-    const resetTurn = () => {
-        setChoiceOne(undefined);
-        setChoiceTwo(undefined);
-        setDisabled(false);
-        switchPlayer();
-    }
+    
     return (
        <section>
         <div className="max-w-[842px] mx-auto bg-white/35 p-6 rounded-lg gap-x-5 gap-y-6 grid grid-cols-9 bg-blue-600">
