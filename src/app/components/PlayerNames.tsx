@@ -71,7 +71,7 @@ export const PlayerNames: React.FC<PlayerNamesProps> = ({ onSubmit }) => {
       onClick={handleDeactivate}
       disabled={!player1Name || !player2Name}
     >
-      Let&apos's Play
+     {"Let's Play"} 
     </button>
   </div>
 </div>
