@@ -25,7 +25,7 @@ export const PlayerNames: React.FC<PlayerNamesProps> = ({ onSubmit }) => {
       onClose={() => (false)}
       className="fixed inset-0 z-50 overflow-y-auto"
     >
-        <Dialog.Panel className="bg-blue-500 rounded-lg p-6 ">
+        <Dialog.Panel className="  rounded-lg p-6 " style={{ backgroundColor: '#3E92CE' }} >
         <div className="flex flex-col gap-8 items-center justify-center min-h-screen">
   <Dialog.Title className="text-4xl text-white font-medium text-center">Are you ready to play?</Dialog.Title>
 
