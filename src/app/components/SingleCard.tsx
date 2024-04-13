@@ -1,15 +1,15 @@
 import Image from "next/image"
 import { Card } from "../utils/Types"
 
-export const SingleCard = ({card, handleChoice, flipped}: {card:Card; handleChoice:any; flipped:boolean})=>{
+export const SingleCard = ({card, handleChoice, flipped, disabled}: {card:Card; handleChoice:any; flipped:boolean; disabled:boolean})=>{
 
     const handleCardClick = () => {
-        handleChoice(card)
+        if(!disabled)handleChoice(card)
     }
 
     return (
         <div className="relative">
-            <div className={flipped? 'flipped': ''}>
+            <div className={` ${flipped? 'flipped': ''} ${card.matched? 'opacity-0 cursor-not-allowed' : ''} ${flipped|| disabled? 'cursor-not-allowed': ''} `} >
                 <Image
                     src={`/images/cards/${card.rank}_of_${card.suit}.png`}
                     alt={`/images/cards/${card.rank}_of_${card.suit}`}
@@ -19,10 +19,11 @@ export const SingleCard = ({card, handleChoice, flipped}: {card:Card; handleChoi
                 />
                 <Image
                     src={"/images/cards/card_back.png"}
+                    //src={`/images/cards/${card.rank}_of_${card.suit}.png`}
                     alt={ "back of the card"}
                     width={72}
                     height={112}
-                    onClick={handleCardClick}
+                    onClick={!card.matched? handleCardClick : undefined}
                     className="back"
                 />
             </div>

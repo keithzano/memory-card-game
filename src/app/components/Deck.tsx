@@ -6,6 +6,7 @@ export const Deck = ()=>{
     const [cards, setCards] = useState<Card[]>([])
     const [choiceOne, setChoiceOne] = useState<Card>();
     const [choiceTwo, setChoiceTwo] = useState<Card>();
+    const [disabled, setDisabled] = useState<boolean>(false)
 
     //Initialising the Deck
     useEffect(()=>{
@@ -47,6 +48,7 @@ export const Deck = ()=>{
 
     useEffect(()=>{
         if (choiceOne && choiceTwo){
+            setDisabled(true)
             if(choiceOne.color === choiceTwo.color && choiceOne.rank === choiceTwo.rank){
                 // rerendering the cards to avoid mutation 
                 const updatedCards = cards.map(card=>(
@@ -63,8 +65,9 @@ export const Deck = ()=>{
 console.log(choiceOne, choiceTwo)
 
     const resetTurn = () => {
-        setChoiceOne(undefined)
-        setChoiceTwo(undefined)
+        setChoiceOne(undefined);
+        setChoiceTwo(undefined);
+        setDisabled(false);
     }
     return (
        <section>
@@ -75,6 +78,7 @@ console.log(choiceOne, choiceTwo)
                 key={card.id}
                 handleChoice= {handleChoice}
                 flipped = {card === choiceOne || card === choiceTwo}
+                disabled= {disabled}
             />
         ))
             }
