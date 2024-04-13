@@ -23,7 +23,10 @@ export default function Home() {
   }
 
   return (
-    <main className=" max-w-[1440px] mx-auto max-h-[1024]  " style={{ backgroundImage: 'url(/images/Background.png)' }} >
+    <main className=" relative max-w-[1440px] mx-auto max-h-[1024]  " style={{ backgroundImage: 'url(/images/Background.png)' }} >
+      <div className="flex justify-center p-6">
+        <p className="text-white text-4xl font- "> Memory</p>
+      </div>
       <PlayerNames onSubmit={handlePlayerNames} />
 
       <div className=" flex items-center justify-center gap-8 p-6">
@@ -42,6 +45,17 @@ export default function Home() {
         </div>
 
       </div>
+      <div className="flex gap-4 absolute top-8 right-8 z-50">
+        <button
+          className=" bg-orange-400 text-white rounded-lg px-4 py-2 text-xl  "> 
+          Exit Game
+        </button>
+        <button
+          className=" bg-red-600 text-white rounded-lg px-4 text-xl "> 
+          Exit Game
+        </button>
+      </div>
+      
       
     </main>
   );
