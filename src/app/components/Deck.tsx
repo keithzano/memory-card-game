@@ -54,7 +54,7 @@ export const Deck = ({currentPlayer, switchPlayer}:{currentPlayer:Player; switch
                 const updatedCards = cards.map(card=>(
                     card.id === choiceOne.id || card.id === choiceTwo.id? {...card, matched:true}:card
                 ));
-                
+               currentPlayer.score++ 
                 setCards(updatedCards)
 
             }else console.log("No match")

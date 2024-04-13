@@ -29,7 +29,7 @@ export default function Home() {
       <div className=" flex items-center justify-center gap-8 p-6">
 
       <div className=" max-w-[220px] max-h-[344px] flex flex-col items-stretch gap-6  ">
-        <PlayerComponent player={player2}  />
+        <PlayerComponent player={player1}  />
         <button className={`bg-emerald-500 text-white rounded-lg text-lg font-bold leading-normal p-2 ${currentPlayer===player1? `block`: 'hidden'} `}> It's Your Turn</button>
       </div>
 
