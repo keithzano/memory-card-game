@@ -71,7 +71,7 @@ console.log(choiceOne, choiceTwo)
     }
     return (
        <section>
-        <div className="grid grid-cols-9 gap-6 bg-blue-600">
+        <div className="max-w-[842px] mx-auto bg-white/35 p-6 rounded-lg gap-x-5 gap-y-6 grid grid-cols-9 bg-blue-600">
             {cards.map(card=>(
             <SingleCard
                 card={card}
