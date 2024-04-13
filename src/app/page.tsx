@@ -48,7 +48,7 @@ export default function Home() {
       <div className="flex gap-4 absolute top-8 right-8 z-50">
         <button
           className=" bg-orange-400 text-white rounded-lg px-4 py-2 text-xl  "> 
-          Exit Game
+          Restart Game
         </button>
         <button
           className=" bg-red-600 text-white rounded-lg px-4 text-xl "> 

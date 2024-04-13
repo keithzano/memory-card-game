@@ -1,12 +1,16 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { Poppins } from "next/font/google";
 import "./globals.css";
 
-const inter = Inter({ subsets: ["latin"] });
+const poppins = Poppins({
+  subsets: ['latin'],
+  display: 'swap',
+  weight: ['600', '700', '800']
+});
 
 export const metadata: Metadata = {
-  title: "Specno Memory Card Game",
-  description: "Take Home Task for Specno Junior front-end Developer",
+  title: "Board Game",
+  description: "Interview task",
 };
 
 export default function RootLayout({
@@ -16,7 +20,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={inter.className}>{children}</body>
+      <body style={{ backgroundColor: '#3E92CE' }} className={poppins.className}>
+        {children}
+      </body>
     </html>
   );
 }
+
