@@ -48,11 +48,13 @@ export const Deck = ()=>{
     useEffect(()=>{
         if (choiceOne && choiceTwo){
             if(choiceOne.color === choiceTwo.color && choiceOne.rank === choiceTwo.rank){
+                // rerendering the cards to avoid mutation 
                 const updatedCards = cards.map(card=>(
                     card.id === choiceOne.id || card.id === choiceTwo.id? {...card, matched:true}:card
                 ));
-                console.log("There was a matchh")
+                
                 setCards(updatedCards)
+
             }else console.log("No match")
             resetTurn();
         }
@@ -71,6 +73,7 @@ console.log(choiceOne, choiceTwo)
                 card={card}
                 key={card.id}
                 handleChoice= {handleChoice}
+                flipped = {card === choiceOne || card === choiceTwo}
             />
         ))
             }

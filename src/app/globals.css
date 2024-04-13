@@ -2,3 +2,11 @@
 @tailwind components;
 @tailwind utilities;
 
+.front{
+    transform: rotateY(90deg);
+    position: absolute;
+}
+
+.flipped .front{
+    transform: rotateY(0deg);
+}
