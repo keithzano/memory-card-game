@@ -56,7 +56,8 @@ export const Deck = ()=>{
                 setCards(updatedCards)
 
             }else console.log("No match")
-            resetTurn();
+            setTimeout(()=>{resetTurn()},1000)
+            
         }
     },[choiceOne,choiceTwo])
 console.log(choiceOne, choiceTwo)
@@ -67,7 +68,7 @@ console.log(choiceOne, choiceTwo)
     }
     return (
        <section>
-        <div className="grid grid-cols-9 gap-6">
+        <div className="grid grid-cols-9 gap-6 bg-blue-600">
             {cards.map(card=>(
             <SingleCard
                 card={card}
