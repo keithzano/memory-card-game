@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react"
-import { Card } from "../utils/Types";
+import { Card, Player } from "../utils/Types";
 import { SingleCard } from "./SingleCard";
 
-export const Deck = ()=>{
+export const Deck = ({currentPlayer, switchPlayer}:{currentPlayer:Player; switchPlayer:any})=>{
     const [cards, setCards] = useState<Card[]>([])
     const [choiceOne, setChoiceOne] = useState<Card>();
     const [choiceTwo, setChoiceTwo] = useState<Card>();
@@ -68,6 +68,7 @@ console.log(choiceOne, choiceTwo)
         setChoiceOne(undefined);
         setChoiceTwo(undefined);
         setDisabled(false);
+        switchPlayer();
     }
     return (
        <section>
