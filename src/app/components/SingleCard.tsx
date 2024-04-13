@@ -18,8 +18,8 @@ export const SingleCard = ({card, handleChoice, flipped, disabled}: {card:Card; 
                     className="front"
                 />
                 <Image
-                    //src={"/images/cards/card_back.png"}
-                    src={`/images/cards/${card.rank}_of_${card.suit}.png`}
+                    src={"/images/cards/card_back.png"}
+                    //src={`/images/cards/${card.rank}_of_${card.suit}.png`}
                     alt={ "back of the card"}
                     width={72}
                     height={112}
