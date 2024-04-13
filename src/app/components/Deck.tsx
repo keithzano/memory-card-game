@@ -4,7 +4,10 @@ import { SingleCard } from "./SingleCard";
 
 export const Deck = ()=>{
     const [cards, setCards] = useState<Card[]>([])
-    
+    const [choiceOne, setChoiceOne] = useState<Card>();
+    const [choiceTwo, setChoiceTwo] = useState<Card>();
+
+    //Initialising the Deck
     useEffect(()=>{
         const suits:string[] = ['hearts', 'diamonds', 'clubs', 'spades'];
         const ranks:string[] = ['A', '2', '3', '4', '5', '6', '7', '8', '9', '10', 'J', 'Q', 'K'];
@@ -37,14 +40,25 @@ export const Deck = ()=>{
         setCards(shuffle(deck));
     },[])
 
-    console.log(cards)
+    //Updating the state with the value for the first and secnd clicked card
+    const handleChoice =(card:Card) =>{
+        choiceOne ? setChoiceTwo(card) : setChoiceOne(card);
+    }
+
+    console.log(choiceOne, choiceTwo)
 
     return (
-        cards.map(card=>(
+       <section>
+        <div className="grid grid-cols-9 gap-6">
+            {cards.map(card=>(
             <SingleCard
                 card={card}
                 key={card.id}
+                handleChoice= {handleChoice}
             />
         ))
+            }
+        </div>
+       </section> 
     )
 }
