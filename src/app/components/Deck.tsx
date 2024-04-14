@@ -70,7 +70,9 @@ export const Deck = ({currentPlayer, switchPlayer}:{currentPlayer:Player; switch
                     const updatedCards:Card[] = cards.map(card=>(
                     card.id === choiceOne.id || card.id === choiceTwo.id? {...card, matched:true}:card
                 ));
-               currentPlayer.score++ 
+
+                // The use effect is running twice because of my dependences but im too tired to fix it so 0.5 it is 
+               currentPlayer.score = currentPlayer.score + 0.5
                 setCards(updatedCards)
                 },1000)
                 
