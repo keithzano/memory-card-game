@@ -57,13 +57,16 @@ export const Deck = ({currentPlayer, switchPlayer}:{currentPlayer:Player; switch
             setDisabled(true)
             if(choiceOne.color === choiceTwo.color && choiceOne.rank === choiceTwo.rank){
 
-                //Prevents the other player from getting point from the other one
-                setChoiceOne(undefined);
-                setChoiceTwo(undefined);
+
 
                 // rerendering the cards to avoid mutation 
                 // delaying the removing of cards from the deck 
                 setTimeout(()=>{
+
+                //Prevents the other player from getting point from the other one
+                setChoiceOne(undefined);
+                setChoiceTwo(undefined);
+
                     const updatedCards:Card[] = cards.map(card=>(
                     card.id === choiceOne.id || card.id === choiceTwo.id? {...card, matched:true}:card
                 ));
